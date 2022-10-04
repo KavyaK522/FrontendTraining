@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    display: blockflex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: aliceblue;
+    padding top:50px 0px 0px 50px;
+    
+}
+.Calculator{
+    position: relative;
+    width: 340px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 15px 15px 20px black, -15px -15px 20px white;
+}
+.Calculator .Button{
+    position: relative;
+    display: grid;
+}
+.Calculator .Button #value{
+position: relative;
+grid-column: span 4;
+user-select: none;
+width: 100%;
+text-align: end;
+color:  rgb(124, 138, 241);
+height: 100px;
+line-height: 100px;
+box-shadow: inset 5px 5px 10px rgb(190, 186, 186),
+ inset -5px -5px 26px #fff; 
+ border-radius: 10px;
+ margin-bottom: 12px;
+ padding: 0px 20px;
+ font-size: 2em;
+ font-weight: 500;
+}
+.Calculator .Button span{
+    position: relative;
+    padding: 10px;
+    box-shadow: inset 5px 5px 10px rgb(190, 186, 186),
+ inset -5px -5px 26px #fff; 
+ cursor: pointer;
+ user-select: none;
+ min-width: 40px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ border-radius: 10px;
+ 
+}
+.Calculator .Button span:hover {
+    color: rgb(124, 138, 241);
+  }

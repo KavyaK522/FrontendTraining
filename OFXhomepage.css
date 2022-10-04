@@ -36,6 +36,10 @@
     margin: 14px 10px 6px 0px;
     cursor: pointer; 
 }
+.dropdown:hover .dropdown-list{
+  display: flex;
+  flex-direction: column;
+}
 .nav1 {
     overflow: hidden;
     background-color:whitesmoke;
@@ -47,6 +51,7 @@
     overflow: hidden;
     float: left;
   }
+
 .dropdown .dropdown-button {
     font-size: 17px;    
     border: none;
@@ -288,18 +293,28 @@
 .page1{
     display: flex;
     padding-top: 10px;
+    gap:20px;
 }
+.page1 h1{
+font-size: 45px;
+}
+.page1 p{
+  font-size: 18px;
+  }
 .page1 img{
     width: 700px;
     height: 600px;
     padding-left: 10px;
 }
 .page1content{
-    display: flex;
+    /* display: flex; */
     /* flex-wrap: wrap; */
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     padding-left: 15px;
+    padding-top: 170px;
+    color: #404042;
+    /* font-size: 16px; */
 }
 
 /* #item{
@@ -321,10 +336,13 @@
     height:700px ;
     align-items:left;
 }
+
 .page3{
-    padding-top: 5px;
+    /* padding-top: 5px; */
     display: flex;
     height: 700px;
+    justify-content: center;
+    align-items: center;
     
 }
 .page3content{
@@ -332,8 +350,10 @@
     justify-content: center;
     align-items: center;
     color: white;
-    padding: 16px 16px 16px 16px;
-    width: 600px;
+    padding: 1cm 16px 10px 2cm;
+    width: 754px; 
+    height: 650px;
+    /* padding: 2cm; */
     
 }
 .page3 p{
@@ -341,7 +361,7 @@
 }
 .page3 img{
     height: 700px;
-    width: 700px;
+     width: 700px; 
 }
 .page4{
     padding-top: 5px;
@@ -388,28 +408,31 @@ width: 800px;
     display: flex;
 }
 .page6container{
-    padding: 25px 25pc 25px 25px;
+    padding: 25px 25px 25px 25px;
     gap: 25px;
 }
 .page7{
     display: flex;
-    gap: 25px;
+    /* gap: 25px; */
     height: 600px; 
+    /* justify-content: center;
+    align-items: center; */
 }
 .page7 img{
-    width: 100%;
-    height: 100%; 
+    width: 750px;
+    height: 600px; 
 }
 .page7content{
-    align-items: center;
-justify-content: center;
+     align-items: center;
+justify-content: center; 
 font-size: 22px;
-padding-left: 70px;
-padding-top: 100px;
+/* padding-left: 70px;
+padding-top: 100px; */
+padding: 100px;
 color: white;
-width: 800px;
+width: 600px;
 background-color: #e69582;
-width: 700px;
+/* width: 700px; */
 }
 .button4{
     background-color: white;
@@ -435,6 +458,111 @@ height: 400px;
 width: 500px;
 }
 .page8content h1{
-    font-size: 25px;
+    font-size: 30px;
+}
+.tabs{
+ display: flex;
+ flex-wrap: wrap;
+ padding-bottom: 25px;
+ background-color: #74c2d1;
+ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.tabs h1{
+color: white;
+font-family: "OrthoFX-Bold";
+font-weight: bolder;
+font-size: 42px;
+padding-left: 1.5cm;
+}
+.tabs input[type="radio"]{display: none;}
+.tabs label{
+ padding: 18px;
+width: 100%;
+background-color: white;
+margin: 0.2cm 1.5cm;
+border-radius: 5px;
+}
+.tabs .tab{
+width: 100%;
+padding: 0px 18px;
+background-color: #74c2d1;
+color: white;
+margin: 0cm 1.5cm 0cm 1.5cm;
+display: none;
+}
+.tabs input[type="radio"]:checked + label + .tab {
+display: block;
+}
+.page9{
+  display: flex;
+  gap: 400px;
+  padding: 50px 50px 50px 50px;
+}
+.page9 h1{
+  font-size: 40px;
+  color: #404042;
+}
+.page9 p{
+  font-size: 25px;
+  color: #404042;
+}
+ .innerdiv{
+gap: 30px;
+display: flex; 
+padding-top: 30px;
+}
+.innerdiv img{
+  width: 300px;
+  height: 300px;
+}
+.page10{
+  display: flex;
+  /* justify-content: center; */
+}
+.page10content{
+  background-color: #e69582;
+  width: 730px;
+  /* display: flex; */
+  /* justify-content: center;
+  align-items: center;  */
+  color: white;
+  padding: 2cm;
+}
+.page10 img{
+  width: 730px;
+  height: 500px;
+}
+.page10 h1{
+  font-size: 40px;
+  /* color: #404042; */
+}
+.page10 p{
+  font-size: 25px;
+  /* color: #404042; */
+}
+.page11{
+  display: flex;
+  background-color: whitesmoke;
+  justify-content: space-evenly;
+  padding-top: 40px;
+}
+.container{
+  background-color: white;
+  gap: 40px;
+}
+.content1 img{
+  height: 300px;
+  width: 400px;
+}
+.content2{
+  border-top: 1px solid #404042;
+  
+}
+.page11 p{
+  color: #404042;
+}
+.subscriberbutton{
+background-color: black;
+color: white;
 }
 
