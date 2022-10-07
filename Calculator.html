@@ -10,45 +10,26 @@
 <body>
     <div class=Calculator>
         <div class=Button>
-          <h2 id="value">123</h2>
-          <span id="clear">clear</span>
-          <span id="div">/</span>
-          <span id="mul">*</span>
-          <span>7</span>
-          <span>8</span>
-          <span>9</span>
-          <span id="minus">-</span>
-          <span>4</span>
-          <span>5</span>
-          <span>6</span>
-          <span id="plus">+</span>
-          <span>1</span>
-          <span>2</span>
-          <span>3</span>
-          <span>0</span>
+          <input type="text" id="value"></input>
+          <span id="clear" onclick="clearScreen(clear)">clear</span>
+          <span id="div" onclick="display('/')">/</span>
+          <span id="mul" onclick="display('*')">*</span>
+          <span onclick="display(7)">7</span>
+          <span onclick="display(8)">8</span>
+          <span onclick="display(9)">9</span>
+          <span id="minus" onclick="display('-')">-</span>
+          <span onclick="display(4)">4</span>
+          <span onclick="display(5)">5</span>
+          <span onclick="display(6)">6</span>
+          <span id="plus" onclick="display('+')">+</span>
+          <span onclick="display(1)">1</span>
+          <span onclick="display(2)">2</span>
+          <span onclick="display(3)">3</span>
+          <span onclick="display(0)">0</span>
           <span>m+</span>
-          <span>.</span>
+          <span onclick="display('.')">.</span>
         </div>
     </div>
-    <script>
-        let Button= document.querySelector('.Button');
-        let btn= document.querySelectorAll('span');
-        let value= document.getElementById('value');
-        for(let i=0; i<btn.length;i++){
-            btn[i].addEventListener("click",fuction()){
-                if(this.innerHTML=="="){
-                    value.innerHTML=eval(value.innerHTML);
-                }else{
-                    if(this.innerHTML=="clear"){
-                        value.innerHTML="";
-                    }
-                    else{
-                        value.innerHTML+=this.innerHTML;
-                    }
-                }
-            }
-        }
-
-    </script>
+    <script src="Calculator.js"></script>
 </body>
 </html>
