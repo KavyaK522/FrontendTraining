@@ -29,5 +29,16 @@ export class CreateEmployeeComponent implements OnInit {
     console.log(this.employeeForm.get('fullName')?.value);
 
   }
+  onLoadDataClick(): void{
+   this.employeeForm.patchValue({
+    fullName: 'Kavya',
+    email: 'kavyak@gmail.com',
+    skills: {
+      skillName: 'C#',
+      experienceInYears: 5,
+      proficiency: 'beginner'
+    }
+   });
+  }
 
 }
