@@ -21,9 +21,15 @@ export class CreateEmployeeComponent implements OnInit {
       proficiency: ['']
     })
     });
-
-    this.employeeForm.valueChanges.subscribe((value: string) => {
-      this.fullNameLength = value.length;
+  }
+  logKeyValuePairs(group: FormGroup): void {
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+      if(abstractControl instanceof FormGroup){
+        this.logKeyValuePairs(abstractControl);
+      } else {
+        abstractControl?.markAsDirty();
+      }
     });
   }
 
@@ -36,15 +42,7 @@ export class CreateEmployeeComponent implements OnInit {
 
   }
   onLoadDataClick(): void{
-   this.employeeForm.patchValue({
-    fullName: 'Kavya',
-    email: 'kavyak@gmail.com',
-    skills: {
-      skillName: 'C#',
-      experienceInYears: 5,
-      proficiency: 'beginner'
-    }
-   });
+   this.logKeyValuePairs(this.employeeForm);
   }
 
 }
