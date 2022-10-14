@@ -146,12 +146,26 @@
         </div>
       </div>
 
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label attr.for="{{ 'descId'}}">Career Objective</label>
+          <textarea
+            class="form-control"
+            rows="5"
+            id="{{ 'descId'}}"
+            type="text"
+            placeholder="Add Objective"
+            formControlName="careerObjective"
+          ></textarea>
+        </div>
+      </div>
+
 
 
 
       <div class="form-row">
         <div class="flexContainer" >
-          <h5>Education qualifications</h5>
+          <h5><b>Education qualifications</b></h5>
           <!-- <svg (click)="addExperience()">
             <use xlink:href="./../../assets/img/svg/icons.svg#icon-add"></use>
           </svg> -->
@@ -216,7 +230,7 @@
       </div> -->
       <div class="form-row">
       <div class="flexContainer" >
-        <h5>Experience and internships</h5>
+        <h5><b>Experience and internships</b></h5>
         <svg (click)="addExperience()">
           <use xlink:href="./../../assets/img/svg/icons.svg#icon-add"></use>
         </svg>
@@ -242,7 +256,7 @@
                 class="form-control"
                 id="{{ 'titleId' + i }}"
                 type="text"
-                placeholder="Ex: Software Engineer"
+                placeholder="Eg: Software Engineer"
                 formControlName="title"
               />
             </div>
@@ -268,7 +282,7 @@
                 class="form-control"
                 id="{{ 'locationId' + i }}"
                 type="text"
-                placeholder="Ex: London, United Kingdom"
+                placeholder="Eg: London, United Kingdom"
                 formControlName="location"
               />
             </div>
@@ -313,6 +327,22 @@
           <hr *ngIf="i !== experienceBlocks.controls.length - 1" />
         </div>
         </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-10">
+            <label attr.for="{{ 'descId'}}">Achievements</label>
+            <textarea
+              class="form-control"
+              rows="5"
+              id="{{ 'descId'}}"
+              type="text"
+              placeholder="Add Achievements"
+              formControlName="Achievements"
+            ></textarea>
+          </div>
+        </div>
+
+
       <button class="btn btn-primary" type="submit" style="width:100px"
         [title]="
           resumeBuilderForm.valid

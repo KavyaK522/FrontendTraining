@@ -20,6 +20,8 @@ export class ResumeBuilderComponent implements OnInit {
       professionalSummary: ['', [Validators.required]],
       academicSkills: ['', [Validators.required]],
       nonacademicSkills: ['', [Validators.required]],
+      careerObjective: ['', [Validators.required]],
+      Achievements: ['', [Validators.required]],
       experienceBlocks: this.formBuilder.array([this.buildExperienceBlock()])
     });
   }
