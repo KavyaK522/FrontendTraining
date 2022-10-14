@@ -118,42 +118,85 @@
         </div>
       </div>
 
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label attr.for="{{ 'descId'}}">Academic Skills</label>
+          <textarea
+            class="form-control"
+            rows="5"
+            id="{{ 'descId'}}"
+            type="text"
+            placeholder="Add Skills"
+            formControlName="academicSkills"
+          ></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-10">
+          <label attr.for="{{ 'descId'}}">Nonacademic Skills</label>
+          <textarea
+            class="form-control"
+            rows="5"
+            id="{{ 'descId'}}"
+            type="text"
+            placeholder="Add Skills"
+            formControlName="nonacademicSkills"
+          ></textarea>
+        </div>
+      </div>
+
+
 
 
       <div class="form-row">
         <div class="flexContainer" >
           <h5>Education qualifications</h5>
-          <svg (click)="addExperience()">
+          <!-- <svg (click)="addExperience()">
             <use xlink:href="./../../assets/img/svg/icons.svg#icon-add"></use>
-          </svg>
+          </svg> -->
         </div>
       </div>
-        <!-- <div
-          formArrayName="experienceBlocks"
-          *ngFor="let experience of experienceBlocks.controls; let i = index"
-        >
+
+      <div>
 
 
-          <div
-            [ngClass]="{
-              'experience-block': experienceBlocks.controls.length > 1
-            }"
-            [formGroupName]="i"
-          >
+          <div>
 
             <div class="form-row">
               <div class="form-group col-md-10">
-                <label attr.for="{{ 'titleId' + i }}">djhfdj</label>
-                <input
-                  class="form-control"
-                  id="{{ 'titleId' + i }}"
-                  type="text"
-                  placeholder="Ex: Software Engineer"
-                  formControlName="title"
+                <label attr.for="{{ 'titleId' }}">Tenth</label>
+                <input class="form-control" id="{{ 'titleId'}}" type="text" placeholder="Percentage of marks obtained in Tenth"
+                formControlName="title"
                 />
               </div>
             </div>
- -->
+          </div>
+      </div>
+
+      <div>
+
+            <div class="form-row">
+              <div class="form-group col-md-10">
+                <label attr.for="{{ 'titleId'  }}">Twelth</label>
+                <input class="form-control" id="{{ 'titleId' }}" type="text" placeholder="Percentage of marks obtained in Twelth"
+                formControlName="title"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div>
+
+            <div class="form-row">
+              <div class="form-group col-md-10">
+                <label attr.for="{{ 'titleId'  }}">Degree</label>
+                <input class="form-control" id="{{ 'titleId' }}" type="text" placeholder="Percentage of marks obtained in Degree"
+                formControlName="title"
+                />
+              </div>
+            </div>
+          </div>
 
 
 
