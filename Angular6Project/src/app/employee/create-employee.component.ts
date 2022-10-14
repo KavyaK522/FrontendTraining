@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, RequiredValidator, AbstractControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, RequiredValidator, AbstractControl, FormControl, FormArray } from '@angular/forms';
 import { CustomValidators } from '../shared/custom.validators';
 @Component({
   selector: 'app-create-employee',
@@ -18,6 +18,13 @@ export class CreateEmployeeComponent implements OnInit {
     'required' : 'Email is required.',
     'emailDomain' : 'Email domain should be orthofx.com'
    },
+   'confirmEmail' : {
+    'required' : 'ConfirmEmail is required.'
+    // 'emailDomain' : 'Email domain should be orthofx.com'
+   },
+   'emailGroup': {
+    'emailMismatch': 'Email and Confirm Email do not match'
+   },
    'phone' : {
     'required' : 'Phone is required.'
    },
@@ -28,13 +35,15 @@ export class CreateEmployeeComponent implements OnInit {
     'required' : 'Experience is required'
    },
    'proficiency' : {
-    'required' : 'Proficiency os required'
+    'required' : 'Proficiency is required'
    },
   };
 
   formErrors = {
     'fullName' : '',
     'email' : '',
+    'confirmEmail' : '',
+    'emailGroup': '',
     'phone' : '',
     'skillName' : '',
     'experienceInYears' : '',
@@ -46,7 +55,10 @@ export class CreateEmployeeComponent implements OnInit {
     this.employeeForm = this.fb.group({
     fullName: ['',[Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
     contactPreference: ['email'],
-    email: ['', [Validators.required, CustomValidators.emailDomain('orthofx.com')]],
+    emailGroup: this.fb.group({
+      email: ['', [Validators.required, CustomValidators.emailDomain('orthofx.com')]],
+      confirmEmail: ['', Validators.required]}, {validators: matchEmail}),
+
     phone: ['',Validators.required],
     skills: this.fb.group({
       skillName: ['', Validators.required],
@@ -77,19 +89,19 @@ export class CreateEmployeeComponent implements OnInit {
   logValidationErrors(group: FormGroup = this.employeeForm): void {
     Object.keys(group.controls).forEach((key: string) => {
       const abstractControl = group.get(key);
-      if(abstractControl instanceof FormGroup){
-        this.logValidationErrors(abstractControl);
-      } else {
-        (this.formErrors as any)[key] = '';
-        if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
-          const messages = (this.validationMessages as any)[key];
-          console.log(messages);
-          for (const errorKey in abstractControl.errors){
-            if (errorKey) {
-              (this.formErrors as any)[key] += messages[errorKey] + ' ';
-            }
+
+      (this.formErrors as any)[key] = '';
+      if (abstractControl && !abstractControl.valid && (abstractControl.touched || abstractControl.dirty)) {
+        const messages = (this.validationMessages as any)[key];
+        console.log(messages);
+        for (const errorKey in abstractControl.errors){
+          if (errorKey) {
+            (this.formErrors as any)[key] += messages[errorKey] + ' ';
           }
         }
+      }
+      if(abstractControl instanceof FormGroup){
+        this.logValidationErrors(abstractControl);
       }
     });
   }
@@ -103,10 +115,35 @@ export class CreateEmployeeComponent implements OnInit {
 
   }
   onLoadDataClick(): void{
-  //  this.logValidationErrors(this.employeeForm);
-  //  console.log(this.formErrors);
+  const formArray = new FormArray([
+    new FormControl('John', Validators.required),
+    new FormGroup({
+      country: new FormControl('', Validators.required)
+    }),
+    new FormArray([])
+  ]);
+  console.log(formArray.length);
+  for(const control of formArray.controls){
+    if(control instanceof FormControl) {
+      console.log('Control is FormControl');
   }
+  if(control instanceof FormGroup) {
+    console.log('control is FormGroup')
+  }
+  }
+}
 
+
+
+function matchEmail(group: AbstractControl): {[key:string]: any} | null{
+  const emailControl = group.get('email');
+  const confirmEmailControl = group.get('confirmEmail');
+
+  if(emailControl?.value === confirmEmailControl?.value || confirmEmailControl?.pristine){
+    return null;
+  } else{
+    return{'emailMismatch': true};
+  }
 }
 
 

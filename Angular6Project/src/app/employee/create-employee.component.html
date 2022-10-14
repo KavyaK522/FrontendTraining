@@ -3,7 +3,7 @@
     <div class="panel-heading">
       <h3 class="panel-title">Create Employee</h3>
     </div>
-    <div class="panel-body">
+  <div class="panel-body">
       <div class="form-group" [ngClass]="{'has-error' : formErrors.fullName}">
         <label class="col-sm-2 control-label" for="fullName">Full Name</label>
         <div class="col-sm-8">
@@ -14,7 +14,7 @@
         </span>
         </div>
       </div>
-    </div>
+
 
 
       <div class="form-group">
@@ -30,9 +30,9 @@
       </div>
 
 
-
+ <div formGroupName="emailGroup">
       <div class="form-group"  [ngClass]="{'has-error' : formErrors.email}">
-        <label class="col-sm-2 control-label" for=""email>Email</label>
+        <label class="col-sm-2 control-label" for="email">Email</label>
         <div class="col-sm-8">
           <input id="email" formControlName="email" type="text" class="form-control"
           (blur)="logValidationErrors()">
@@ -41,6 +41,29 @@
           </span>
         </div>
       </div>
+
+      <div class="form-group"  [ngClass]="{'has-error' : formErrors.confirmEmail || formErrors.emailGroup}">
+        <label class="col-sm-2 control-label" for="confirmEmail">Confirm Email</label>
+        <div class="col-sm-8">
+          <input id="confirmEmail" formControlName="confirmEmail" type="text" class="form-control"
+          (blur)="logValidationErrors()">
+          <span class="help-block" *ngIf="formErrors.confirmEmail || formErrors.emailGroup">
+            {{formErrors.confirmEmail ? formErrors.confirmEmail : formErrors.emailGroup}}
+
+          </span>
+        </div>
+      </div>
+ </div>
+      <!-- <div class="form-group"  [ngClass]="{'has-error' : formErrors.email}">
+        <label class="col-sm-2 control-label" for=""email>Email</label>
+        <div class="col-sm-8">
+          <input id="email" formControlName="email" type="text" class="form-control"
+          (blur)="logValidationErrors()">
+          <span class="help-block" *ngIf="formErrors.email">
+            {{formErrors.email}}
+          </span>
+        </div>
+      </div> -->
 
       <div class="form-group"  [ngClass]="{'has-error' : formErrors.phone}">
         <label class="col-sm-2 control-label" for=""phone>Phone</label>
@@ -96,9 +119,9 @@
     </div>
   </div>
 </div>
-</div>
+ </div>
 
-
+  </div>
 
       <div class="panel-footer">
         <div class="btn-toolbar">
@@ -106,8 +129,7 @@
         <button class="btn btn-primary" type="button" (click)="onLoadDataClick()">Load Data</button>
       </div>
       </div>
-    </div>
-
+  </div>
 
 </form>
 <table border="1">
