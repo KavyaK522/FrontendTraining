@@ -22,11 +22,16 @@ export class ResumeBuilderComponent implements OnInit {
       nonacademicSkills: ['', [Validators.required]],
       careerObjective: ['', [Validators.required]],
       Achievements: ['', [Validators.required]],
+      tenthTitle: ['', [Validators.required]],
+      twelthTitle: ['', [Validators.required]],
+      degreeTitle: ['', [Validators.required]],
       experienceBlocks: this.formBuilder.array([this.buildExperienceBlock()])
     });
   }
 
   buildExperienceBlock(): FormGroup {
+    console.log("hello");
+
     return this.formBuilder.group({
       title: ['', [Validators.required]],
       company: ['', [Validators.required]],
@@ -37,6 +42,7 @@ export class ResumeBuilderComponent implements OnInit {
 
     });
   }
+
 
   save() {
     console.log(this.resumeBuilderForm);
@@ -50,6 +56,8 @@ export class ResumeBuilderComponent implements OnInit {
   }
 
   addExperience() {
+
     this.experienceBlocks.insert(0, this.buildExperienceBlock());
+    console.log(this.experienceBlocks.controls);
   }
 }

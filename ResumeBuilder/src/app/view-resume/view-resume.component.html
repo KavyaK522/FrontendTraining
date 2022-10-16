@@ -1,5 +1,19 @@
 <!-- <p>view-resume works!</p> -->
 <div class="m-20">
-  <p>{{resumeData}}</p>
+  <div><b>Name:</b> {{resumeData.firstName}} {{resumeData.lastName}}</div>
+  <div><b>Email:</b> {{resumeData.email}}</div>
+  <div><b>Phone:</b> {{resumeData.phone}}</div>
+  <div><b>Professional Summary:</b><br> {{resumeData.professionalSummary}}</div>
+  <div><b>Academic Skills:</b> {{resumeData.academicSkills}}</div>
+  <div><b>Nonacademic Skills:</b> {{resumeData.nonacademicSkills}}</div>
+  <div><b>Career Objective:</b> {{resumeData.careerObjective}}</div>
+  <div><b>Education Qualifications</b><br>
+    <p>Tenth Percentage: {{resumeData.tenthTitle}}</p>
+    <p>Twelth Percentage: {{resumeData.twelthTitle}}</p>
+    <p>Degree Percentage: {{resumeData.degreeTitle}}</p>
+  </div>
+  <div>
+
+  </div>
 </div>
 

@@ -8,10 +8,13 @@ import { Component, OnInit } from '@angular/core';
 export class ViewResumeComponent implements OnInit {
 
   constructor() { }
-  resumeData: String | undefined
+  resumeData!: any
+  formData!:any|null
   ngOnInit(): void {
-    const data = localStorage.getItem('dataSource')
-    this.resumeData = data != null ? data: " "
+    const data = localStorage.getItem('dataSource')||"";
+    this.resumeData= JSON.parse(data);
+    console.log(this.resumeData);
+
   }
 
 }
