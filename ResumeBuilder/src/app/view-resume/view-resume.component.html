@@ -1,5 +1,5 @@
 <!-- <p>view-resume works!</p> -->
-<div class="m-20">
+<div class="container">
   <div><b>Name:</b> {{resumeData.firstName}} {{resumeData.lastName}}</div>
   <div><b>Email:</b> {{resumeData.email}}</div>
   <div><b>Phone:</b> {{resumeData.phone}}</div>
@@ -12,14 +12,19 @@
     <p>Twelth Percentage: {{resumeData.twelthTitle}}</p>
     <p>Degree Percentage: {{resumeData.degreeTitle}}</p>
   </div>
-  <div><b>Experience and internships</b>
+  <div><b>Experience and internships:</b>
     <div *ngFor="let experience of resumeData.experienceBlocks">
     <p>Job Title:{{experience.title}} , {{experience.location}}</p>
     <p>Company:{{experience.company}}</p>
     <p>Date:{{experience.startDate}} - {{experience.endDate}}</p>
     <p><b>Description:</b>{{experience.description}}</p>
+  </div>
+  <div>
     <p><b>Achievements:</b>{{resumeData.Achievements}}</p>
   </div>
   </div>
+  <button class="btn btn-primary" type="edit" style="width:100px">
+       Edit
+      </button>
 </div>
 
